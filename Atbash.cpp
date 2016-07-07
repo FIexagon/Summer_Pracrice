@@ -24,7 +24,7 @@ int main() {
 		InsertToHead(P, &phrase);
 		i++;
 	};
-	list = (char *)malloc(i + 1);		//âûäåëåíèå íóæíîãî îáú¸ìà ïàìÿòè		
+	list = (char *)malloc(i + 1);		//Ã¢Ã»Ã¤Ã¥Ã«Ã¥Ã­Ã¨Ã¥ Ã­Ã³Ã¦Ã­Ã®Ã£Ã® Ã®Ã¡ÃºÂ¸Ã¬Ã  Ã¯Ã Ã¬Ã¿Ã²Ã¨		
 	WriteList(phrase, list, i);
 	list[i] = '\0';
 	puts(list);
@@ -34,29 +34,29 @@ int main() {
 	fclose(fsr1);
 	system("pause");
 }
-void InsertToHead(char AItem, PNode * Head) {		//÷òåíèå èç ôàéëà â äèíàìè÷åñêèå ìàññèâ
+void InsertToHead(char AItem, PNode * Head) {		//Ã·Ã²Ã¥Ã­Ã¨Ã¥ Ã¨Ã§ Ã´Ã Ã©Ã«Ã  Ã¢ Ã¤Ã¨Ã­Ã Ã¬Ã¨Ã·Ã¥Ã±ÃªÃ¨Ã¥ Ã¬Ã Ã±Ã±Ã¨Ã¢
 	PNode Q;
 	Q = (PNode)malloc(sizeof(TNode));
 	Q->Next = *Head;
 	Q->Sym = AItem;
 	*Head = Q;
 }
-void WriteList(PNode P, char *f, int i) { //Ïîñèìâîëüíîå øèôğîâàíèå, çàïèñü â ñòàòè÷åñêèé ìàññèâ (ïğèâû÷íåå ğàáîòàòü)
+void WriteList(PNode P, char *f, int i) { //ÃÃ®Ã±Ã¨Ã¬Ã¢Ã®Ã«Ã¼Ã­Ã®Ã¥ Ã¸Ã¨Ã´Ã°Ã®Ã¢Ã Ã­Ã¨Ã¥, Ã§Ã Ã¯Ã¨Ã±Ã¼ Ã¢ Ã±Ã²Ã Ã²Ã¨Ã·Ã¥Ã±ÃªÃ¨Ã© Ã¬Ã Ã±Ã±Ã¨Ã¢ (Ã¯Ã°Ã¨Ã¢Ã»Ã·Ã­Ã¥Ã¥ Ã°Ã Ã¡Ã®Ã²Ã Ã²Ã¼)
 	while (P != NULL) {
 		i--;
 		f[i] = P->Sym;
 		if (((int)(f[i]) >= -64) && ((int)(f[i]) <= -49)) {
 			f[i] = (char)(-33 - ((int)(f[i]) + 64));
-		} //Øèôğîâàíèå À-Ï
+		} //Ã˜Ã¨Ã´Ã°Ã®Ã¢Ã Ã­Ã¨Ã¥ Ã€-Ã
 		else if (((int)(f[i]) >= -48) && ((int)(f[i]) <= -33)) {
 			f[i] = (char)(-64 + (-33 - (int)(f[i])));
-		} //Øèôğîâàíèå Ğ-ß
+		} //Ã˜Ã¨Ã´Ã°Ã®Ã¢Ã Ã­Ã¨Ã¥ Ã-ÃŸ
 		else if (((int)(f[i]) >= -32) && ((int)(f[i]) <= -17)) {
 			f[i] = (char)(-1 - ((int)(f[i]) + 32));
-		} //Øèôğîâàíèå à-ï
+		} //Ã˜Ã¨Ã´Ã°Ã®Ã¢Ã Ã­Ã¨Ã¥ Ã -Ã¯
 		else if (((int)(f[i]) >= -16) && ((int)(f[i]) <= -1)) {
 			f[i] = (char)(-32 + (-1 - (int)(f[i])));
-		}//Øèôğîâàíèå ğ-ÿ
+		}//Ã˜Ã¨Ã´Ã°Ã®Ã¢Ã Ã­Ã¨Ã¥ Ã°-Ã¿
 		P = P->Next;
 	}
 }
