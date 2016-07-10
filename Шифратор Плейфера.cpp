@@ -17,7 +17,7 @@ int main() {
 	FILE *fsr;
 	FILE *fsr1;
 	FILE *code;
-	int i, j, k, l, m, n, x, y, pryam, b;
+	int i, j, k, l, m, n, x, y, pryam, a, b;
 	char P;
 	char alph[73] = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ .,!?-";
 	fsr = fopen("list.bin", "rt");
@@ -78,10 +78,11 @@ int main() {
 		y = -1;
 		bigr(alph, list[i], list[i + 1], &x, &y);
 		if (int(x / 8) == int(y / 8)) {
-			if (int((x + 1) / 8) == int(x / 8)) { x++; }
-			else { x = x - 6; };
+			if (int((x + 1) / 8) == int(x / 8)) { a=x+1; }
+			else { a = x - 7; };
 			if (int((y + 1) / 8) == int(y / 8)) { y++; }
-			else { y = y - 6; }
+			else { y = y - 7; }
+			x = a;
 		}
 		else {
 			if (int(x % 8) == int(y % 8)) {
