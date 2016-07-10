@@ -24,39 +24,36 @@ int main() {
 		InsertToHead(P, &phrase);
 		i++;
 	};
-	list = (char *)malloc(i + 1);		//âûäåëåíèå íóæíîãî îáú¸ìà ïàìÿòè		
+	list = (char *)malloc(i + 1);				
 	WriteList(phrase, list, i);
 	list[i] = '\0';
-	puts(list);
 	fprintf(fsr1, "%s", list);
-//		fwrite(&list, sizeof(list), 1, fsr1);
 	fclose(fsr);
 	fclose(fsr1);
-	system("pause");
 }
-void InsertToHead(char AItem, PNode * Head) {		//÷òåíèå èç ôàéëà â äèíàìè÷åñêèå ìàññèâ
+void InsertToHead(char AItem, PNode * Head) {		
 	PNode Q;
 	Q = (PNode)malloc(sizeof(TNode));
 	Q->Next = *Head;
 	Q->Sym = AItem;
 	*Head = Q;
 }
-void WriteList(PNode P, char *f, int i) { //Ïîñèìâîëüíîå øèôðîâàíèå, çàïèñü â ñòàòè÷åñêèé ìàññèâ (ïðèâû÷íåå ðàáîòàòü)
+void WriteList(PNode P, char *f, int i) { 
 	while (P != NULL) {
 		i--;
 		f[i] = P->Sym;
 		if (((int)(f[i]) >= -64) && ((int)(f[i]) <= -49)) {
 			f[i] = (char)(-33 - ((int)(f[i]) + 64));
-		} //Øèôðîâàíèå À-Ï
+		}
 		else if (((int)(f[i]) >= -48) && ((int)(f[i]) <= -33)) {
 			f[i] = (char)(-64 + (-33 - (int)(f[i])));
-		} //Øèôðîâàíèå Ð-ß
+		} 
 		else if (((int)(f[i]) >= -32) && ((int)(f[i]) <= -17)) {
 			f[i] = (char)(-1 - ((int)(f[i]) + 32));
-		} //Øèôðîâàíèå à-ï
+		}
 		else if (((int)(f[i]) >= -16) && ((int)(f[i]) <= -1)) {
 			f[i] = (char)(-32 + (-1 - (int)(f[i])));
-		}//Øèôðîâàíèå ð-ÿ
+		}
 		P = P->Next;
 	}
 }
