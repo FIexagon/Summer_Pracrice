@@ -17,28 +17,28 @@ int main() {
 	FILE *fsr1;
 	int i;
 	char P;
-	fsr = fopen("list.bin", "rb");
-	fsr1 = fopen("output.bin", "w");
+	fsr = fopen("list.txt", "r");
+	fsr1 = fopen("output.txt", "w");
 	i = 0;
 	while (fread(&P, sizeof(char), 1, fsr)) {
 		InsertToHead(P, &phrase);
 		i++;
 	};
-	list = (char *)malloc(i + 1);				
+	list = (char *)malloc(i + 1);
 	WriteList(phrase, list, i);
 	list[i] = '\0';
 	fprintf(fsr1, "%s", list);
 	fclose(fsr);
 	fclose(fsr1);
 }
-void InsertToHead(char AItem, PNode * Head) {		
+void InsertToHead(char AItem, PNode * Head) {
 	PNode Q;
 	Q = (PNode)malloc(sizeof(TNode));
 	Q->Next = *Head;
 	Q->Sym = AItem;
 	*Head = Q;
 }
-void WriteList(PNode P, char *f, int i) { 
+void WriteList(PNode P, char *f, int i) {
 	while (P != NULL) {
 		i--;
 		f[i] = P->Sym;
@@ -47,7 +47,7 @@ void WriteList(PNode P, char *f, int i) {
 		}
 		else if (((int)(f[i]) >= -48) && ((int)(f[i]) <= -33)) {
 			f[i] = (char)(-64 + (-33 - (int)(f[i])));
-		} 
+		}
 		else if (((int)(f[i]) >= -32) && ((int)(f[i]) <= -17)) {
 			f[i] = (char)(-1 - ((int)(f[i]) + 32));
 		}
