@@ -106,7 +106,7 @@ namespace shifr {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(129, 23);
 			this->button1->TabIndex = 2;
-			this->button1->Text = L" Ó‰ËÓ‚‡Ú¸";
+			this->button1->Text = L"–ö–æ–¥–∏—Ä–æ–≤–∞—Ç—å";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
@@ -117,7 +117,7 @@ namespace shifr {
 			this->button2->Size = System::Drawing::Size(129, 23);
 			this->button2->TabIndex = 2;
 			this->button2->TabStop = false;
-			this->button2->Text = L"–‡ÒÍÓ‰ËÓ‚‡Ú¸";
+			this->button2->Text = L"–†–∞—Å–∫–æ–¥–∏—Ä–æ–≤–∞—Ç—å";
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
@@ -128,7 +128,7 @@ namespace shifr {
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(89, 13);
 			this->label1->TabIndex = 4;
-			this->label1->Text = L"»ÒıÓ‰Ì˚È ÚÂÍÒÚ";
+			this->label1->Text = L"–ò—Å—Ö–æ–¥–Ω—ã–π —Ç–µ–∫—Å—Ç";
 			// 
 			// label2
 			// 
@@ -137,20 +137,20 @@ namespace shifr {
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(59, 13);
 			this->label2->TabIndex = 5;
-			this->label2->Text = L"–ÂÁÛÎ¸Ú‡Ú";
+			this->label2->Text = L"–†–µ–∑—É–ª—å—Ç–∞—Ç";
 			// 
 			// comboBox1
 			// 
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(6) {
-				L"¬˚·ÂËÚÂ ÏÂÚÓ¯ ¯ËÙÓ‚‡ÌËˇ", L"¿Ú·‡¯", L"ÿËÙ ÷ÂÁ‡ˇ",
-					L"ÿËÙ ¬ËÊÂÌÂ‡", L" ‚‡‰‡Ú œÓÎË·Ëˇ", L"ÿËÙ œÎÂÈÙÂ‡"
+				L"–í—ã–±–µ—Ä–∏—Ç–µ –º–µ—Ç–æ—à —à–∏—Ñ—Ä–æ–≤–∞–Ω–∏—è", L"–ê—Ç–±–∞—à", L"–®–∏—Ñ—Ä –¶–µ–∑–∞—Ä—è",
+					L"–®–∏—Ñ—Ä –í–∏–∂–µ–Ω–µ—Ä–∞", L"–ö–≤–∞–¥—Ä–∞—Ç –ü–æ–ª–∏–±–∏—è", L"–®–∏—Ñ—Ä –ü–ª–µ–π—Ñ–µ—Ä–∞"
 			});
 			this->comboBox1->Location = System::Drawing::Point(117, 308);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(201, 21);
 			this->comboBox1->TabIndex = 6;
-			this->comboBox1->Text = L"¬˚·ÂËÚÂ ÏÂÚÓ¯ ¯ËÙÓ‚‡ÌËˇ";
+			this->comboBox1->Text = L"–í—ã–±–µ—Ä–∏—Ç–µ –º–µ—Ç–æ—à —à–∏—Ñ—Ä–æ–≤–∞–Ω–∏—è";
 			// 
 			// textBox3
 			// 
@@ -170,7 +170,7 @@ namespace shifr {
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(327, 13);
 			this->label3->TabIndex = 4;
-			this->label3->Text = L" Ó‰Ó‚ÓÂ ÒÎÓ‚Ó ËÎË Ù‡Á‡ (‰Îˇ ¯ËÙÓ‚ ¬ËÊÂÌÂ‡ Ë œÎÂÈÙÂ‡)";
+			this->label3->Text = L"–ö–æ–¥–æ–≤–æ–µ —Å–ª–æ–≤–æ –∏–ª–∏ —Ñ—Ä–∞–∑–∞ (–¥–ª—è —à–∏—Ñ—Ä–æ–≤ –í–∏–∂–µ–Ω–µ—Ä–∞ –∏ –ü–ª–µ–π—Ñ–µ—Ä–∞)";
 			// 
 			// button3
 			// 
@@ -204,12 +204,10 @@ namespace shifr {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-		FILE *f;
-		FILE *CODE;
-		array<Char>^ a = textBox1->Text->ToCharArray();
-		f = fopen("list.txt", "w");
-		fprintf(f, "%s", a);
-		fclose(f);
+		System::Text::Encoding^ kodirovka = System::Text::Encoding::GetEncoding(1251);
+		IO::StreamWriter^ sw = gcnew IO::StreamWriter("list.txt", false, kodirovka);
+		sw->Write(textBox1->Text);
+		sw->Close();
 		int index = comboBox1->SelectedIndex;
 		switch (index)
 		{
@@ -219,7 +217,6 @@ namespace shifr {
 			myProcess->StartInfo->FileName = "Atbash.exe";
 			myProcess->Start();
 			System::Threading::Thread::Sleep(1000);
-			System::Text::Encoding^ kodirovka = System::Text::Encoding::GetEncoding(1251);
 			IO::StreamReader^ ch = gcnew IO::StreamReader("output.txt", kodirovka);
 			String^ line1;
 			int k = 0;
@@ -287,10 +284,9 @@ namespace shifr {
 		}
 		case 5:
 		{
-			array<Char>^ c = textBox3->Text->ToCharArray();
-			CODE = fopen("code.txt", "w");
-			fprintf(CODE, "%s", c);
-			fclose(CODE);
+			IO::StreamWriter^ cd = gcnew IO::StreamWriter("code.txt", false, kodirovka);
+			cd->Write(textBox3->Text);
+			cd->Close();
 			Process^ myProcess = gcnew Process();
 			myProcess->StartInfo->FileName = "Pleyfer.exe";
 			myProcess->Start();
@@ -309,17 +305,15 @@ namespace shifr {
 		}
 		default:
 		{
-			textBox2->Text = "¬˚·ÂËÚÂ ÏÂÚÓ‰ ¯ËÙÓ‚‡ÌËˇ";;
+			textBox2->Text = "–í—ã–±–µ—Ä–∏—Ç–µ –º–µ—Ç–æ–¥ —à–∏—Ñ—Ä–æ–≤–∞–Ω–∏—è";;
 		}
 		}
 	}
 	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
-		FILE *f;
-		FILE *CODE;
-		array<Char>^ a = textBox1->Text->ToCharArray();
-		f = fopen("list.txt", "w");
-		fprintf(f, "%s", a);
-		fclose(f);
+		System::Text::Encoding^ kodirovka = System::Text::Encoding::GetEncoding(1251);
+		IO::StreamWriter^ sw = gcnew IO::StreamWriter("list.txt", false, kodirovka);
+		sw->Write(textBox1->Text);
+		sw->Close();
 		int index = comboBox1->SelectedIndex;
 		switch (index)
 		{
@@ -397,10 +391,9 @@ namespace shifr {
 		}
 		case 5:
 		{
-			array<Char>^ c = textBox3->Text->ToCharArray();
-			CODE = fopen("code.txt", "w");
-			fprintf(CODE, "%s", c);
-			fclose(CODE);
+			IO::StreamWriter^ cd = gcnew IO::StreamWriter("code.txt", false, kodirovka);
+			cd->Write(textBox3->Text);
+			cd->Close();
 			Process^ myProcess = gcnew Process();
 			myProcess->StartInfo->FileName = "Pleyferdesh.exe";
 			myProcess->Start();
@@ -419,7 +412,7 @@ namespace shifr {
 		}
 		default:
 		{
-			textBox2->Text = "¬˚·ÂËÚÂ ÏÂÚÓ‰ ¯ËÙÓ‚‡ÌËˇ";;
+			textBox2->Text = "–í—ã–±–µ—Ä–∏—Ç–µ –º–µ—Ç–æ–¥ —à–∏—Ñ—Ä–æ–≤–∞–Ω–∏—è";;
 		}
 		}
 	}
