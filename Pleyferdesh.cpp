@@ -17,12 +17,12 @@ int main() {
 	FILE *fsr;
 	FILE *fsr1;
 	FILE *code;
-	int i, j, k, l, m, n, x, y, a, pryam, b;
+	int i, j, k, l, x, y, a, pryam;
 	char P;
-	char alph[73] = "àáâãäå¸æçèéêëìíîïğñòóôõö÷øùúûüışÿÀÁÂÃÄÅ¨ÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ×ØÙÚÛÜİŞß .,!?-";
-	fsr = fopen("list.bin", "rt");
+	char alph[73] = "Ğ°Ğ±Ğ²Ğ³Ğ´ĞµÑ‘Ğ¶Ğ·Ğ¸Ğ¹ĞºĞ»Ğ¼Ğ½Ğ¾Ğ¿Ñ€ÑÑ‚ÑƒÑ„Ñ…Ñ†Ñ‡ÑˆÑ‰ÑŠÑ‹ÑŒÑÑÑĞĞ‘Ğ’Ğ“Ğ”Ğ•ĞĞ–Ğ—Ğ˜Ğ™ĞšĞ›ĞœĞĞĞŸĞ Ğ¡Ğ¢Ğ£Ğ¤Ğ¥Ğ¦Ğ§Ğ¨Ğ©ĞªĞ«Ğ¬Ğ­Ğ®Ğ¯ .,!?-";
+	fsr = fopen("list.txt", "rt");
 	code = fopen("code.txt", "rt");
-	fsr1 = fopen("output.bin", "wt");
+	fsr1 = fopen("output.txt", "w");
 	i = 0;
 	while (fread(&P, sizeof(char), 1, fsr)) {
 		InsertToHead(P, &phrase);
