@@ -20,9 +20,9 @@ int main() {
 	int i, j, k, l, m, n, x, y, pryam, a, b;
 	char P;
 	char alph[73] = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ .,!?-";
-	fsr = fopen("list.bin", "rt");
+	fsr = fopen("list.txt", "rt");
 	code = fopen("code.txt", "rt");
-	fsr1 = fopen("output.bin", "wt");
+	fsr1 = fopen("output.txt", "w");
 	i = 0;
 	while (fread(&P, sizeof(char), 1, fsr)) {
 		InsertToHead(P, &phrase);
