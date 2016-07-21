@@ -52,7 +52,7 @@ namespace shifr {
 	private: System::Windows::Forms::ComboBox^  comboBox1;
 	private: System::Windows::Forms::TextBox^  textBox3;
 	private: System::Windows::Forms::Label^  label3;
-	private: System::Windows::Forms::Button^  button3;
+
 
 
 
@@ -80,7 +80,6 @@ namespace shifr {
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// textBox1
@@ -88,7 +87,7 @@ namespace shifr {
 			this->textBox1->Location = System::Drawing::Point(41, 47);
 			this->textBox1->Multiline = true;
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(361, 191);
+			this->textBox1->Size = System::Drawing::Size(361, 262);
 			this->textBox1->TabIndex = 0;
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox1_TextChanged);
 			// 
@@ -97,12 +96,12 @@ namespace shifr {
 			this->textBox2->Location = System::Drawing::Point(469, 47);
 			this->textBox2->Multiline = true;
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(361, 191);
+			this->textBox2->Size = System::Drawing::Size(361, 262);
 			this->textBox2->TabIndex = 1;
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(508, 269);
+			this->button1->Location = System::Drawing::Point(508, 358);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(129, 23);
 			this->button1->TabIndex = 2;
@@ -112,7 +111,7 @@ namespace shifr {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(668, 269);
+			this->button2->Location = System::Drawing::Point(668, 358);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(129, 23);
 			this->button2->TabIndex = 2;
@@ -146,17 +145,18 @@ namespace shifr {
 				L"Выберите метош шифрования", L"Атбаш", L"Шифр Цезаря",
 					L"Шифр Виженера", L"Квадрат Полибия", L"Шифр Плейфера"
 			});
-			this->comboBox1->Location = System::Drawing::Point(117, 308);
+			this->comboBox1->Location = System::Drawing::Point(117, 397);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(201, 21);
 			this->comboBox1->TabIndex = 6;
+			this->comboBox1->DropDownStyle = ComboBoxStyle::DropDownList;
 			this->comboBox1->Text = L"Выберите метош шифрования";
 			// 
 			// textBox3
 			// 
 			this->textBox3->Font = (gcnew System::Drawing::Font(L"Lucida Console", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->textBox3->Location = System::Drawing::Point(41, 269);
+			this->textBox3->Location = System::Drawing::Point(41, 358);
 			this->textBox3->Multiline = true;
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(361, 23);
@@ -166,27 +166,17 @@ namespace shifr {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(61, 253);
+			this->label3->Location = System::Drawing::Point(61, 342);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(327, 13);
 			this->label3->TabIndex = 4;
-			this->label3->Text = L"Кодовое слово или фраза (для шифров Виженера и Плейфера)";
-			// 
-			// button3
-			// 
-			this->button3->Location = System::Drawing::Point(590, 359);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(75, 23);
-			this->button3->TabIndex = 7;
-			this->button3->Text = L"button3";
-			this->button3->UseVisualStyleBackColor = true;
+			this->label3->Text = L"Кодовое слово или фраза для шифра Плейфера";
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(863, 495);
-			this->Controls->Add(this->button3);
 			this->Controls->Add(this->comboBox1);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label3);
@@ -196,8 +186,8 @@ namespace shifr {
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox1);
-			this->Name = L"MyForm";
-			this->Text = L"MyForm";
+			this->Name = L"Шифратор";
+			this->Text = L"Шифратор";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
